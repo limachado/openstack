@@ -3,8 +3,14 @@
   hosts: all
   
   tasks:
-  - name: Ansible shell module creates parameter example.
-    command: touch shell.txt
-    args:
-      chdir: ~/
-      creates: shell.txt
+  - name: Get list of clouds that do not support security groups
+    os_client_config:
+
+  - debug:
+    var: "{{ item }}"
+    with_items: "{{ openstack.clouds | rejectattr('secgroup_source', 'none') | list }}"
+
+  - name: Get the information back just about the mordred cloud
+    os_client_config:
+    clouds:
+      - mordred
