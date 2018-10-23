@@ -1,0 +1,10 @@
+---
+- name: Criarpasta
+  hosts: all
+  
+  tasks:
+  - name: Ansible shell module creates parameter example.
+    command: touch shell.txt
+    args:
+      chdir: ~/
+      creates: shell.txt
