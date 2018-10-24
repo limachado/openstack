@@ -2,13 +2,13 @@
 - name: OpenStack
   hosts: localhost
   vars:
-    openstack_authentication:
-      auth_url: http://10.130.214.31:5000/v3
-      username: admin
-      password: d642ef99804241a2
-      project_name: admin
-      user_domain_name: Default
-      project_domain_name: Default
+    #openstack_authentication:
+     # auth_url: http://10.130.214.31:5000/v3
+      #username: admin
+      #password: d642ef99804241a2
+      #project_name: admin
+      #user_domain_name: Default
+      #project_domain_name: Default
 
   tasks:
 
