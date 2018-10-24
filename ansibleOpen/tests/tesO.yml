@@ -11,13 +11,13 @@
       #project_domain_name: Default
 
   tasks:
-
+#
  #   - name: Deletando uma imagem...
   #    os_image:
         #auth: "{{ openstack_authentication }}"
     #    name: teste
    #     state: absent
-
+#
     - name: Criando uma instância...
       os_server:
         state: present
