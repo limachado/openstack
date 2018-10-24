@@ -12,11 +12,11 @@
 
   tasks:
 
-    - name: Deletando uma imagem...
-      os_image:
+ #   - name: Deletando uma imagem...
+  #    os_image:
         #auth: "{{ openstack_authentication }}"
-        name: teste
-        state: absent
+    #    name: teste
+   #     state: absent
 
     - name: Criando uma instância...
       os_server:
