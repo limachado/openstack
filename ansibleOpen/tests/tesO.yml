@@ -33,7 +33,7 @@
         name: ansible-sabe-criar-vm
         image: 54db790a-760c-4862-8ceb-d809191a7418
         #key_name: ansible-lua
-        timeout: i00
+        timeout: 100
         flavor: 1
         nics:
           - net-id: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
