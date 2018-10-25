@@ -27,11 +27,12 @@
       os_server:
         state: present
         auth: "{{ openstack_authentication }}"
-        name: ansible-sabe-criar-vm
+        name: ansible-sabe-criar-vm-awx
         image: 54db790a-760c-4862-8ceb-d809191a7418
-       # key_name: ansible-lua
+        key_name: ansible-lua
         timeout: 20
         flavor: 1
-        nics:
-          - net-id: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
+        auto_floating_ip: no
+        network: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
 
+                                                                                                                                    1,3          Topo
