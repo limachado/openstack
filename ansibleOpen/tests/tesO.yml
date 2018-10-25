@@ -2,13 +2,6 @@
 - name: OpenStack
   hosts: localhost
   vars:
-    openstack_authentication:
-      auth_url: http://10.130.214.31:5000/v3
-      username: admin
-      password: d642ef99804241a2
-      project_name: admin
-      user_domain_name: Default
-      project_domain_name: Default
     proxy_env:
       http_proxy: http://limachado:Leitinha15@proxylatam.indra.es:8080
   gather_facts: False
@@ -17,8 +10,7 @@
 
     - name: Deletando uma imagem...
       environment: "{{proxy_env}}"
-      os_image:
-        auth: "{{ openstack_authentication }}"
+      os_image:     
         name: teste
         state: absent
 
@@ -26,10 +18,9 @@
       environment: "{{proxy_env}}"
       os_server:
         state: present
-        auth: "{{ openstack_authentication }}"
         name: ansible-sabe-criar-vm-awx
         image: 54db790a-760c-4862-8ceb-d809191a7418
-        key_name: ansible-lua
+        #key_name: ansible-lua
         timeout: 20
         flavor: 1
         auto_floating_ip: no
