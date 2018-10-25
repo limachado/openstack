@@ -1,7 +1,6 @@
 ---
 - name: OpenStack
   hosts: localhost
-  gather_facts: False
   vars:
     openstack_authentication:
       auth_url: http://10.130.214.31:5000/v3
@@ -10,33 +9,29 @@
       project_name: admin
       user_domain_name: Default
       project_domain_name: Default
-  
-  pre_tasks:
-      - name: Install python for Ansible
-        raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-        register: output
-        changed_when: output.stdout != ""
-    
+    proxy_env:
+      http_proxy: http://limachado:Leitinha15@proxylatam.indra.es:8080
+  gather_facts: False
 
   tasks:
-#
-#    - name: Deletando uma imagem...
-#       os_image:
-#        auth: "{{ openstack_authentication }}"
-#        name: teste
-#        state: absent
+
+    - name: Deletando uma imagem...
+      environment: "{{proxy_env}}"
+      os_image:
+        auth: "{{ openstack_authentication }}"
+        name: teste
+        state: absent
 
     - name: Criando uma instância...
+      environment: "{{proxy_env}}"
       os_server:
         state: present
         auth: "{{ openstack_authentication }}"
         name: ansible-sabe-criar-vm
         image: 54db790a-760c-4862-8ceb-d809191a7418
-        #key_name: ansible-lua
-        timeout: 100
+       # key_name: ansible-lua
+        timeout: 20
         flavor: 1
         nics:
           - net-id: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
-        meta:
-          hostname: ansible-sabe-criar-vm
-          group: uge_master
+
