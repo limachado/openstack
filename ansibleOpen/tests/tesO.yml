@@ -4,15 +4,8 @@
   vars:
     proxy_env:
       http_proxy: http://limachado:Leitinha15@proxylatam.indra.es:8080
-  gather_facts: False
 
   tasks:
-
-    - name: Deletando uma imagem...
-      environment: "{{proxy_env}}"
-      os_image:     
-        name: teste
-        state: absent
 
     - name: Criando uma instância...
       environment: "{{proxy_env}}"
