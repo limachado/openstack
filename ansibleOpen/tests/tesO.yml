@@ -4,19 +4,23 @@
   vars:
     proxy_env:
       http_proxy: http://limachado:Leitinha15@proxylatam.indra.es:8080
+  gather_facts: False
 
   tasks:
+
+    - name: Deletando uma imagem...
+      environment: "{{proxy_env}}"
+      os_image:
+        name: teste
+        state: absent
 
     - name: Criando uma instância...
       environment: "{{proxy_env}}"
       os_server:
         state: present
-        name: ansible-sabe-criar-vm-awx
+        name: ansible-sabe-criar-vm
         image: 54db790a-760c-4862-8ceb-d809191a7418
-        #key_name: ansible-lua
         timeout: 20
         flavor: 1
         auto_floating_ip: no
         network: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
-
-                                                                                                                                    1,3          Topo
