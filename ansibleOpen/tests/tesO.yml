@@ -1,6 +1,6 @@
 ---
 - name: OpenStack
-  hosts: localhost
+  hosts: 10.130.214.31
   vars:
     proxy_env:
       http_proxy: http://limachado:Leitinha15@proxylatam.indra.es:8080
