@@ -5,10 +5,10 @@
 
   tasks:
 
-    #- name: Deletando uma imagem...
-     # os_image:
-      #  name: teste
-       # state: absent
+    - name: Deletando uma imagem...
+      os_image:
+        name: teste
+        state: absent
 
     - name: Criando uma instância...
       os_server:
