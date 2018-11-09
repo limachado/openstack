@@ -5,17 +5,17 @@
 
   tasks:
 
-    - name: Deletando uma imagem...
-      os_image:
-        name: teste
-        state: absent
+    #- name: Deletando uma imagem...
+     # os_image:
+      #  name: teste
+       # state: absent
 
     - name: Criando uma instância...
       os_server:
         state: present
-        name: ansible-sabe-criar-vm
+        name: cirros-teste
         image: 54db790a-760c-4862-8ceb-d809191a7418
-        timeout: 20
+        timeout: 100
         flavor: 1
-        auto_floating_ip: no
+        #auto_floating_ip: no
         network: 7afed87a-b512-4ef1-b7e9-eb1ccb56cf1e
